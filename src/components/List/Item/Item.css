@@ -1,0 +1,58 @@
+.item {
+    height: 70px;
+    background-color: white;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border: 5px solid brown;
+    border-right: none;
+}
+.item__text {
+    padding: 15px;
+    overflow: auto;
+    flex-grow: 1;
+    color: brown;
+}
+.item__del-btn {
+    flex-shrink: 0;
+    width: 70px;
+    height: 100%;
+    background-color: brown;
+    cursor: pointer;
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+    transition: 0.1s;
+}
+@keyframes delete {
+    0% {
+        left: 0;
+        top: 0;
+    }
+    40% {
+        left: 0;
+        top: 0;
+    }
+    100% {
+        left: -2000px;
+        top: 0;
+    }
+}
+
+.deleted {
+    position: relative;
+    left: 0;
+    top: 0;
+    border-color: green;
+
+    animation-name: delete;
+    animation-duration: 1s;
+}
+.deleted .item__del-btn {
+    background-color: green;
+}
+.deleted .item__text {
+    text-decoration: line-through solid green;
+}

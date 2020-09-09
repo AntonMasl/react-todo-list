@@ -1,0 +1,39 @@
+.form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+.form__input {
+    width: 400px;
+    padding: 20px;
+    font-size: 24px;
+    border: 5px solid green;
+    border-radius: 30px 0 0 30px;
+    
+    border-right: none;
+    background-color: transparent;
+    color: black;
+}
+.form__input:focus{
+    box-shadow: inset 0px 0px 15px green;
+}
+.form__input::placeholder {
+    font-size: 24px;
+
+   color: rgba(0, 0, 0, 0.4);
+
+}
+.form__btn {
+    width: 200px;
+    background-color: green;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    border-radius: 0px 30px 30px 0px;
+    transition: 0.2s; 
+    font-weight: 500;
+}
+.form__btn:hover {
+    box-shadow: inset 0px 0px 25px black;
+}
