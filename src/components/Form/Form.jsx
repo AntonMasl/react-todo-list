@@ -24,7 +24,7 @@ class Form extends Component {
             alert('Вы ничего не ввели')
             return
         }
-        this.props.addItem(this.state.value)
+        this.props.addTask(this.state.value)
         this.setState({
             value: ''
         })
@@ -37,14 +37,10 @@ class Form extends Component {
                     className="form__input"
                     type="text"
                     value={this.state.value}
-                    placeholder="Введите дело"
+                    placeholder="Введите задачу"
                     onChange={this.valueChange}
                 />
-                <button
-                    className="form__btn"
-                >
-                    Добавить
-                        </button>
+                <button className="form__btn">Добавить</button>
             </form>
         )
     }

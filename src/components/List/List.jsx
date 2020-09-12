@@ -1,13 +1,17 @@
 import React from 'react';
 
 import './List.css'
-import Item from './Item/Item'
+import Task from './Task/Task';
 
 const List = (props) => {
-    let dataItems = props.state.data.map(item => <Item key={item.id} text={item.text} deleted={item.deleted} deleteItem={() => props.deleteItem(item.id)} />)
+    let dataTasks = props.state.data.map(item => <Task key={item.id}
+        text={item.text}
+        deleted={item.deleted}
+        deleteTask={props.deleteTask.bind(this,item.id,item.deleted)} />)
+        // () => props.deleteItem(item.id,item.deleted)
     return (
         <ul className="list">
-            {dataItems}
+            {dataTasks}
         </ul>
     )
 }

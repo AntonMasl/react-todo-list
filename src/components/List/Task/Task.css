@@ -1,4 +1,4 @@
-.item {
+.task {
     height: 70px;
     background-color: white;
     font-size: 24px;
@@ -9,13 +9,13 @@
     border: 5px solid brown;
     border-right: none;
 }
-.item__text {
+.task__text {
     padding: 15px;
     overflow: auto;
     flex-grow: 1;
     color: brown;
 }
-.item__del-btn {
+.task__del-btn {
     flex-shrink: 0;
     width: 70px;
     height: 100%;
@@ -50,9 +50,15 @@
     animation-name: delete;
     animation-duration: 1s;
 }
-.deleted .item__del-btn {
+.deleted .task__del-btn {
     background-color: green;
 }
-.deleted .item__text {
+.deleted .task__text {
     text-decoration: line-through solid green;
+}
+
+@media (max-width: 600px) {
+    .task {
+        font-size: 16px;
+    }
 }

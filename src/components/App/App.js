@@ -8,20 +8,17 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: [
-        { id: 1, text: 'Купить хлеба' },
-        { id: 2, text: 'фыв dfg sdfsdfgs hsdfpgsdfpgh fsdgu dpfgsdpf gspd sdfgsdfg dsf kgsfdgiudhf giodfug dfgosdfg fsdh gosdfu godsfgosdf hgdsfhgu dsfguhs fddsf gsdfgsdfgsdfg sdfg sdfg sdfgsdfggu dsfog udosfgsdf fgsdfg фывфыгщвфывфыв фыгшв рфывгшрзфЫВРФыврФЫВ Фыв ФЫВФВ ФЫВ ФЫВ ФВ ФЫВФЫВ' },
-        { id: 3, text: 'Купить' }
-      ],
+      data: []
     }
-    this.deleteItem = this.deleteItem.bind(this)
-    this.addItem = this.addItem.bind(this)
-
+    this.deleteTask = this.deleteTask.bind(this)
+    this.addTask = this.addTask.bind(this)
     this.maxId = this.state.data.length
-
   }
 
-  deleteItem(id) {
+  deleteTask(id, deleted) {
+    if (deleted) {
+      return
+    }
     this.setState(state => {
       const index = state.data.findIndex((elem) => elem.id === id)
       const newArr = [...state.data]
@@ -40,10 +37,14 @@ class App extends Component {
     }), 700)
   }
 
-  addItem(content) {
-    const newItem = { id: ++this.maxId, text: content }
+  addTask(content) {
+    const newTask = {
+      id: ++this.maxId,
+      text: content,
+      deleted: false
+    }
     this.setState(state => {
-      const newArr = [...state.data, newItem]
+      const newArr = [...state.data, newTask]
       return {
         data: newArr
       }
@@ -56,8 +57,8 @@ class App extends Component {
       <div className="todo" >
         <div className="todo__inner">
           <h1 className="todo__title">Список дел</h1>
-          <Form addItem={this.addItem} />
-          <List state={this.state} deleteItem={this.deleteItem} />
+          <Form addTask={this.addTask} />
+          <List state={this.state} deleteTask={this.deleteTask} />
         </div>
       </div>
 
