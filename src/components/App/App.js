@@ -2,16 +2,21 @@ import React, { Component } from 'react';
 import './App.css';
 import Form from '../Form/Form';
 import List from '../List/List';
+import Header from '../Header/Header';
+import SearchPanel from '../SearchPanel/SearchPanel';
+
 
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      data: []
+      data: [],
+      valueSearch: ''
     }
     this.deleteTask = this.deleteTask.bind(this)
     this.addTask = this.addTask.bind(this)
+    this.valueSearchChange = this.valueSearchChange.bind(this)
     this.maxId = this.state.data.length
   }
 
@@ -49,16 +54,33 @@ class App extends Component {
         data: newArr
       }
     })
+  }
+
+  searchTask(tasks, valueSearch) {
+    if (valueSearch === "") {
+      return tasks
+    }
+    
+    return tasks.filter(task => {
+      return task.text.indexOf(valueSearch) > -1
+    })
 
   }
 
+  valueSearchChange(valueSearch) {
+    this.setState({ valueSearch: valueSearch })
+  }
+
   render() {
+    const visibleTasks = this.searchTask(this.state.data, this.state.valueSearch)
     return (
       <div className="todo" >
         <div className="todo__inner">
-          <h1 className="todo__title">Список дел</h1>
+          {/* <h1 className="todo__title">Список дел</h1> */}
+          <Header state={this.state} />
           <Form addTask={this.addTask} />
-          <List state={this.state} deleteTask={this.deleteTask} />
+          <SearchPanel valueSearchChange={this.valueSearchChange} />
+          <List tasks={visibleTasks} deleteTask={this.deleteTask} />
         </div>
       </div>
 

@@ -18,6 +18,7 @@ class Form extends Component {
             value: e.target.value
         })
     }
+    
     onSubmit(e) {
         e.preventDefault()
         if (this.state.value === '') {
@@ -37,7 +38,7 @@ class Form extends Component {
                     className="form__input"
                     type="text"
                     value={this.state.value}
-                    placeholder="Введите задачу"
+                    placeholder="Введите задачу..."
                     onChange={this.valueChange}
                 />
                 <button className="form__btn">Добавить</button>

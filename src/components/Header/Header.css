@@ -1,0 +1,17 @@
+.header {
+    align-self: stretch;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.header__title {
+    font-size: 28px;
+}
+.header__number-task {
+    font-size: 28px;
+}
+.header__number-task span{
+    color: brown;
+    font-weight: 700;
+}
