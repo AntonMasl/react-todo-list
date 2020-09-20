@@ -18,10 +18,10 @@ class Form extends Component {
             value: e.target.value
         })
     }
-    
+
     onSubmit(e) {
         e.preventDefault()
-        if (this.state.value === '') {
+        if (+this.state.value.trim() === 0) {
             alert('Вы ничего не ввели')
             return
         }
